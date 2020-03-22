@@ -10,6 +10,7 @@ $(OUT_DIR)/%: $(SRC_DIR)/%.o
 
 $(SRC_DIR)/%.o: $(SRC_DIR)/%.asm
 	@ echo "> Compiling $<"
+	@ mkdir -p $(OUT_DIR)
 	$(AC) -f $(ARCH) $<
 
 clean:
