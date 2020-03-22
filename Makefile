@@ -1,13 +1,19 @@
+AC=nasm
+LFLAGS=-lSystem
+ARCH=macho64
+OUT_DIR=bin
+SRC_DIR=src
+
 all: clean hello
 
-hello: hello.o
-	@ echo "> Linking"
-	ld -no_pie -macosx_version_min 10.7.0 -lSystem -o hello $^
+$(OUT_DIR)/%: $(SRC_DIR)/%.o
+	@ echo "> Linking $<"
+	ld $(LFLAGS) -o $@ $<
 
-hello.o:
-	@ echo "> Compiling"
-	nasm -f macho64 hello.asm
+$(SRC_DIR)/%.o: $(SRC_DIR)/%.asm
+	@ echo "> Compiling $<"
+	$(AC) -f $(ARCH) $<
 
 clean:
 	@ echo "> Cleaning environment"
-	rm -f hello.o hello
+	rm -f $(OUT_DIR)/*
