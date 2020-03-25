@@ -1,3 +1,5 @@
+; adapted from https://www.tutorialspoint.com/assembly_programming/assembly_arrays.htm
+
         global _main                   ; must be declared for linker (ld)
         default rel
 
