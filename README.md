@@ -39,7 +39,10 @@ Your binary will be generated inside `bin/` directory. To execute, just run:
 ```bash
 $ bin/<binary_name>
 ```
-in this example, `$ bin/hello`
+in this example: 
+```bash
+$ bin/hello
+```
 
 ## Bugs and suggestions
 
